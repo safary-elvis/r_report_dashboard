@@ -22,7 +22,6 @@ format:
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-
 ```{r}
 #load package
 if(!require(pacman)) install.packages("pacman")
@@ -34,7 +33,6 @@ anemia_raw <- read_csv(here("data/prevalence_anemia.csv"), skip_empty_rows = TRU
 maternal_raw <- read_csv(here("data/maternal_mortality_ratio.csv"), skip_empty_rows = TRUE)
 
 ```
-
 
 ```{r}
 # clean column names and reshape
@@ -107,7 +105,6 @@ global_mmr_2023 <- combined_long %>%
   filter(year == 2023) %>% summarise(avg = mean(mmr, na.rm = TRUE)) %>% pull(avg)
 ```
 
-
 ```{r}
 layout_columns(
   col_widths = c(3, 3, 3, 3),   # four equal columns
@@ -136,7 +133,6 @@ layout_columns(
     theme = "warning",
     p("Post‑partum bleeding remains the biggest direct killer.")))
 ```
-
 
 # Gobal average anemia prevalence
 
@@ -248,7 +244,6 @@ maternal_causes
 # Comparison Table between Anemia and MMR
 
 - This interactive table displays a side‑by‑side comparison of anemia prevalence and maternal mortality ratio (MMR) for each country, covering the years 2000 and 2023. Additional columns include absolute changes for both indicators, allowing users to sort, search, and identify countries that have improved or worsened. The colour‑coded bars visually highlight the magnitude of change.
-
 
 ```{r}
 summary_table <- country_data %>%
